@@ -7,7 +7,7 @@ namespace Ex3
         static void Main()
         {
             int[] nums = new int[5];
-            int maior = 0;
+            int maior = int.MinValue;
 
             for (int i = 0; i < 5; i++)
             {   
