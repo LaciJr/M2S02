@@ -6,9 +6,10 @@ namespace Ex1
     {
         public static void Main()
         {
+            Console.WriteLine("Digite o raio do círculo:");
             var r = Console.ReadLine();
             int ra = Convert.ToInt32(r);
-            Console.WriteLine(ra*ra*Math.PI);
+            Console.WriteLine($"A área do circulo é {ra*ra*Math.PI}");
         }
     }
 }
