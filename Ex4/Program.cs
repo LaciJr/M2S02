@@ -6,10 +6,10 @@ namespace Ex4
     {
         static void Main()
         {
-            int[] nums = new int[5];
+            int[] nums = new int[7];
             int menor = int.MaxValue;
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 7; i++)
             {
                 Console.WriteLine($"Digite o {i + 1}º número");
                 nums[i] = Convert.ToInt32(Console.ReadLine());
