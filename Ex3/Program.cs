@@ -20,7 +20,7 @@ namespace Ex3
                 }
             }
 
-            Console.WriteLine($"O maior número é digitado foi {maior}");
+            Console.WriteLine($"O maior número digitado foi {maior}");
         }
     }
 }
