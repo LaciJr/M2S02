@@ -14,39 +14,35 @@ namespace Ex10
             {
                 case < 280:
                     percentual = 0.2;
-                    Console.WriteLine($"Salário anterior: {salario}");
-                    Console.WriteLine($"Percentual de aumento aplicado: {percentual*100}%");
-                    Console.WriteLine($"Valor do aumento: {salario*percentual}");
-                    Console.WriteLine($"Novo salário: {salario * (percentual + 1)}");
+                    MostrarSalario(salario, percentual);
                     break;
 
                 case < 700:
                     percentual = 0.15;
-                    Console.WriteLine($"Salário anterior: {salario}");
-                    Console.WriteLine($"Percentual de aumento aplicado: {percentual * 100}%");
-                    Console.WriteLine($"Valor do aumento: {salario * percentual}");
-                    Console.WriteLine($"Novo salário: {salario * (percentual + 1)}");
+                    MostrarSalario(salario, percentual);
                     break;
 
                 case < 1500:
                     percentual = 0.10;
-                    Console.WriteLine($"Salário anterior: {salario}");
-                    Console.WriteLine($"Percentual de aumento aplicado: {percentual * 100}%");
-                    Console.WriteLine($"Valor do aumento: {salario * percentual}");
-                    Console.WriteLine($"Novo salário: {salario * (percentual + 1)}");
+                    MostrarSalario(salario, percentual);
                     break;
 
                 case >= 1500:
                     percentual = 0.05;
-                    Console.WriteLine($"Salário anterior: {salario}");
-                    Console.WriteLine($"Percentual de aumento aplicado: {percentual * 100}%");
-                    Console.WriteLine($"Valor do aumento: {salario * percentual}");
-                    Console.WriteLine($"Novo salário: {salario * (percentual + 1)}");
+                    MostrarSalario(salario, percentual);
                     break;
 
                 default:
                     Console.WriteLine($"Salário inválido");
                     break;
+            }
+
+            static void MostrarSalario(int salario, double percentual)
+            {
+                Console.WriteLine($"Salário anterior: {salario}");
+                Console.WriteLine($"Percentual de aumento aplicado: {percentual * 100}%");
+                Console.WriteLine($"Valor do aumento: {salario * percentual}");
+                Console.WriteLine($"Novo salário: {salario * (percentual + 1)}");
             }
         }
     }
