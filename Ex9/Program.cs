@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,41 +9,36 @@ namespace Ex9
 {
     internal class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-            List<Alunos> listaNotas = new List<Alunos>();
 
+            string path = @"c:\users\laci-\documents\github\m2s02\ex9\";
+            string json = File.ReadAllText($"{path}notas.json");
+            dynamic listaNotas = JsonConvert.DeserializeObject(json);
+            var listaReprovados = new List<object>();
 
-            string path = @"C:\Users\laci-\Documents\GitHub\M2S02\Ex9\";
-
-            using (StreamReader sr = File.OpenText($"{path}notas.json"))
+            foreach (var item in listaNotas)
             {
-                var s = sr.ReadToEnd();
-                listaNotas = JsonSerializer.Deserialize<List<Alunos>>(s);
+                if (item.Nota < 5)
+                {
+                    listaReprovados.Add(item);
+                }
             }
 
-            if (listaNotas.Any(e => e.Nota < 5))
+            string jsonAluno = JsonConvert.SerializeObject(listaReprovados);
+            if (listaReprovados.Count == 0)
             {
-                var alunosReprovados = listaNotas.FindAll(e => e.Nota < 5);
-
+                Console.WriteLine("Nenhum aluno com nota menor que 5!");
+            }
+            else
+            {
                 using (StreamWriter sw = File.CreateText($"{path}reprovados.json"))
                 {
-                    string jsonAluno = JsonSerializer.Serialize(alunosReprovados);
                     sw.WriteLine(jsonAluno);
                 }
 
                 Console.WriteLine("Arquivo de alunos reprovados criado com sucesso!");
             }
-            else
-            {
-                Console.WriteLine("Nenhum aluno reprovado!");
-            }
-        }
-
-        public class Alunos
-        {
-            public string Nome { get; set; }
-            public int Nota { get; set; }
         }
     }
 }
